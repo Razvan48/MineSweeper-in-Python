@@ -45,6 +45,12 @@ backButton = pygame.transform.scale(backButton, (buttonWidth, buttonHeight))
 resetButton = pygame.image.load("Assets/Buttons/resetButton.png")
 resetButton = pygame.transform.scale(resetButton, (buttonWidth, buttonHeight))
 
+font20 = pygame.font.Font("freesansbold.ttf", 20)
+font50 = pygame.font.Font("freesansbold.ttf", 50)
+
+digitText = [font20.render(str(x), True, (0, 255, 255)) for x in range(9)]
+digitTextRect = [digitText[x].get_rect() for x in range(9)]
+
 buttonMarginY = buttonHeight * 0.25
 
 quitButtonPos = (margin - epsilonBoardWidth, margin - epsilonBoardHeight + 2 * buttonHeight + 2 * buttonMarginY, buttonWidth, buttonHeight)
@@ -123,8 +129,7 @@ while running:
     screen.blit(resetButton, resetButtonPos)
 
     #
-    font = pygame.font.Font("freesansbold.ttf", 20)
-    text = font.render(str("Number of remaining flags: " + str(numOfFlags)), True, (0, 0, 0))
+    text = font20.render(str("Number of remaining flags: " + str(numOfFlags)), True, (0, 0, 0))
     textRect = text.get_rect()
     textRect.center = (3 * screenWidth / 4, screenHeight / 20)
     screen.blit(text, textRect)
@@ -142,11 +147,8 @@ while running:
                 else:
                     pygame.draw.rect(screen, (0, 128, 0), pygame.Rect(margin + x * rectWidth + epsilonSquareWidth, boardStartY + y * rectHeight + epsilonSquareHeight, rectWidth - 2 * epsilonSquareWidth, rectHeight - 2 * epsilonSquareHeight))
                     if numOfBombsAround[x][y] != 0:
-                        font = pygame.font.Font("freesansbold.ttf", 20)
-                        text = font.render(str(numOfBombsAround[x][y]), True, (0, 255, 255))
-                        textRect = text.get_rect()
-                        textRect.center = (margin + x * rectWidth + rectWidth / 2, boardStartY + y * rectHeight + rectHeight / 2)
-                        screen.blit(text, textRect)
+                        digitTextRect[numOfBombsAround[x][y]].center = (margin + x * rectWidth + rectWidth / 2, boardStartY + y * rectHeight + rectHeight / 2)
+                        screen.blit(digitText[numOfBombsAround[x][y]], digitTextRect[numOfBombsAround[x][y]])
 
 
     if not wonGame:
@@ -206,15 +208,15 @@ while running:
         wonGame = True
 
     if wonGame:
-        #
-        font = pygame.font.Font("freesansbold.ttf", 50)
-        text = font.render("YOU WON!", True, (0, 255, 0))
+        text = font50.render("YOU WON!", True, (0, 255, 0))
         textRect = text.get_rect()
         textRect.center = (screenWidth / 2, screenHeight / 2)
         screen.blit(text, textRect)
-        #
 
     for event in pygame.event.get():
-        pass
+        if event.type == pygame.QUIT:
+            running = False
 
     pygame.display.flip()
+
+pygame.quit()
