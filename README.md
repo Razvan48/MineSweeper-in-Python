@@ -1,6 +1,6 @@
 # MineSweeper | _Python, Pygame, PyCharm_
 
-&emsp; This projects recreates the game of MineSweeper using Python and Pygame module. <br />
+&emsp; This is a recreation of the MineSweeper game using Python and Pygame module. <br />
 &emsp; All sprites (including buttons, flags and bombs) are made from scratch. <br />
 
 <p>
