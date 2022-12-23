@@ -11,6 +11,8 @@ backGroundColor2 = (0, 0,   0)
 screen = pygame.display.set_mode((screenWidth, screenHeight))
 
 pygame.display.set_caption("MineSweeper")
+icon = pygame.image.load("Assets/Sprites/bomb.png")
+pygame.display.set_icon(icon)
 
 running = True
 canClickOnSquares = True
@@ -129,7 +131,7 @@ while running:
     screen.blit(resetButton, resetButtonPos)
 
     #
-    text = font20.render(str("Number of remaining flags: " + str(numOfFlags)), True, (0, 0, 0))
+    text = font20.render(str("Number of remaining flags: " + str(numOfFlags)), True, (255, 255, 255))
     textRect = text.get_rect()
     textRect.center = (3 * screenWidth / 4, screenHeight / 20)
     screen.blit(text, textRect)
