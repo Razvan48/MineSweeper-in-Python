@@ -5,6 +5,6 @@
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 
-![](https://github.com/Razvan48/MineSweeper-in-Python/blob/main/MineSweeperDemo.gif)
+![]("https://github.com/Razvan48/MineSweeper-in-Python/blob/main/MineSweeperDemo.gif")
 
 
