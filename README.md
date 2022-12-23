@@ -4,7 +4,7 @@
 &emsp; All sprites (including buttons, flags and bombs) are made from scratch. <br />
 
 <p align = "center">
-  <img width="400" height="533" src="https://github.com/Razvan48/MineSweeper-written-in-Python/blob/main/MineSweeperDemo.gif">
+  <img width="400" height="533" src="https://github.com/Razvan48/MineSweeper-written-in-Python/blob/main/Demo/MineSweeperDemo.gif">
 </p>
 
 
