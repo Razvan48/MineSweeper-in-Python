@@ -107,7 +107,13 @@ def initialize():
     wonGame = False
 
 def fillCells(x, y):
+
+    global numOfFlags
+
     visibleSquare[x][y] = True
+    if flagOnSquare[x][y]:
+        flagOnSquare[x][y] = False
+        numOfFlags += 1
     if not numOfBombsAround[x][y]:
         for i in range(len(dx)):
             x2 = x + dx[i]
