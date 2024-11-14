@@ -1,4 +1,4 @@
-# MineSweeper
+# MineSweeper-in-Python
 
 &emsp; This is a recreation of the MineSweeper game using Python and Pygame module. <br/>
 
